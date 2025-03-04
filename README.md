@@ -46,7 +46,7 @@ Ensure you have the following installed:
 1. **Clone the Repository**
    ```sh
    git clone <repository-url>
-   cd project-root
+   cd MedWhisper
    ```
 
 2. **Setup Environment Variables**
