@@ -67,7 +67,7 @@ const ConversationPage: React.FC = () => {
 
       try {
         const response = await fetch(
-          "https://med-whisper-backend-280871509489.us-central1.run.app/api/generate-response",
+          `${import.meta.env.VITE_BACKEND_API_URL}/api/generate-response`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

@@ -296,8 +296,8 @@ app.delete("/api/reports/:id", (req, res) => {
 // Swagger Documentation
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
-  console.log("Swagger Docs available at http://localhost:3000/api-docs");
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Swagger Docs available at http://localhost:${PORT}/api-docs`);
 });
 

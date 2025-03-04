@@ -31,7 +31,7 @@ const ReportsPage: React.FC = () => {
       document.title = "Reports";
       try {
         const response = await fetch(
-          "https://med-whisper-backend-280871509489.us-central1.run.app/api/reports"
+          `${import.meta.env.VITE_BACKEND_API_URL}/api/reports`
         );
         const data = await response.json();
         console.log(data);
@@ -72,7 +72,7 @@ const ReportsPage: React.FC = () => {
   const deleteReport = async (id) => {
     try {
       const response = await fetch(
-        `https://med-whisper-backend-280871509489.us-central1.run.app/api/reports/${id}`,
+        `${import.meta.env.VITE_BACKEND_API_URL}/api/reports/${id}`,
         {
           method: "DELETE",
         }

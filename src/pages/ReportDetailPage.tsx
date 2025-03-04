@@ -33,7 +33,7 @@ const ReportDetailPage: React.FC = () => {
       document.title = "Patient Report";
       try {
         const response = await fetch(
-          `https://med-whisper-backend-280871509489.us-central1.run.app/api/reports/${id}`
+          `${import.meta.env.VITE_BACKEND_API_URL}/api/reports/${id}`
         ); // Replace with your actual API endpoint
         if (!response.ok) {
           throw new Error("Failed to fetch report");
