@@ -270,6 +270,34 @@ app.delete("/api/reports/:id", async (req, res) => {
 // });
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server running on port : ${PORT}`);
+import { swaggerUi, specs } from "./swagger.js"; // Import Swagger configuration
+
+const App = express();
+
+App.use(express.json()); // Middleware to parse JSON
+
+// API Endpoints
+App.post("/api/generate-response", (req, res) => {
+  res.json({ response: "LLM response generated successfully." });
 });
+
+App.get("/api/reports", (req, res) => {
+  res.json([{ id: "12345", diagnosis: "Hypertension" }]);
+});
+
+App.get("/api/reports/:id", (req, res) => {
+  res.json({ id: req.params.id, diagnosis: "Diabetes" });
+});
+
+app.delete("/api/reports/:id", (req, res) => {
+  res.json({ message: `Report ${req.params.id} deleted successfully.` });
+});
+
+// Swagger Documentation
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+
+app.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
+  console.log("Swagger Docs available at http://localhost:3000/api-docs");
+});
+
