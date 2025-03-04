@@ -1,6 +1,6 @@
-# MediWhisper
+# MedWhisper
 
-MediWhisper is a real-time AI-powered clinical decision support system that transcribes doctor-patient conversations, generates SOAP notes, provides differential diagnoses, and suggests clinical pathways.
+MedWhisper is a real-time AI-powered clinical decision support system that transcribes doctor-patient conversations, generates SOAP notes, provides differential diagnoses, and suggests clinical pathways.
 
 ## Tech Stack
 
@@ -52,9 +52,10 @@ Ensure you have the following installed:
 2. **Setup Environment Variables**
    - Create a `.env` file in the root directory and add the required environment variables:
      ```env
+     PORT=5000
      MONGO_URI=<your-mongodb-uri>
      GEMINI_API_KEY=<your-api-key>
-     PORT=5000
+     VITE_BACKEND_API_URL=<url-of-backend>
      ```
 
 3. **Install Dependencies**
@@ -68,24 +69,33 @@ Ensure you have the following installed:
    node server.js
 
    # Start frontend server
-   cd src
    npm run dev
    ```
 
 5. **Testing API Endpoints**
    - Use **Postman** or **cURL** to test API endpoints.
-   - API documentation available via Swagger/OpenAPI .
+   - API documentation available via Swagger .
 
 ### Dockerized Setup (Optional)
 
 1. **Build and Run Using Docker**
    ```sh
-   docker-compose up --build
+   cd build/frontend
+   docker build -t frontend .
+
+   docker run -p 3000:80 --env-file ../.env frontend
+
+   cd ../backend
+   docker build -t backend .
+
+   docker run -p 5000:5000 --env-file ../.env backend
+
+
    ```
 
 2. **Stop the Containers**
    ```sh
-   docker-compose down
+   docker stop backend frontend
    ```
 
 ## Deployment
