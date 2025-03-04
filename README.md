@@ -125,4 +125,7 @@ Ensure you have the following installed:
 - Hosted on **Google Cloud Server**
 - **Frontend URL:** [https://med-whisper-frontend-280871509489.us-central1.run.app](#)
 - **Backend URL:** [https://med-whisper-backend-280871509489.us-central1.run.app](#)
+## Demo
+- **Demo Video:** [https://drive.google.com/file/d/1AJa0k4L4KGXBaFphukb21_kGVvsjp59q/view?usp=sharing](#)
+  
   
